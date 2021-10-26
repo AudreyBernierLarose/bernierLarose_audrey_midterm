@@ -6,22 +6,23 @@ public class ETrigger : MonoBehaviour
 {
     [SerializeField] private GameObject instruction;
 
+    //Setting active an object
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
-        {
+        if(other.gameObject.tag == "Player")
             instruction.SetActive(true);
-        }
+        
     }
 
+    //Setting inactive an object
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
-        {
             instruction.SetActive(false);
-        }
+        
     }
 
+    // Start is called before the first frame update
     private void Start()
     {
         instruction.SetActive(false);

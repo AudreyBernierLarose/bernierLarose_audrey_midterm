@@ -5,11 +5,12 @@ using UnityEngine;
 public class ChestController : MonoBehaviour
 {
     private Animator anim;
+
     [SerializeField] private GameObject particles;
 
     public static bool isOpened;
 
-
+    //Action allowed if player is within the collider
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))

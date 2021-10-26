@@ -10,11 +10,13 @@ public class VirtualCameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Making a list of cameras from scratch
         virtualCameras.Clear();
         for (int counter = 0; counter < transform.childCount; counter++)
             virtualCameras.Add(transform.GetChild(counter).gameObject);
     }
 
+    //Camera to transition to
     public void TransitionTo(GameObject cameraToTransitionTo)
     {
         foreach (GameObject g in virtualCameras)

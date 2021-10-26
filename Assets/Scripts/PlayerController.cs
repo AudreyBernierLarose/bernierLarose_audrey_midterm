@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //Private variables
     private Rigidbody2D rBody;
-    private bool isGrounded = false;
     private Animator anim;
-    private bool isFacingRight = true;
     private Vector3 startPos;
+    private bool isGrounded = false;
+    private bool isFacingRight = true;
     private bool isDucking;
 
-    //"Public" variables
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private float jumpForce = 500f;
     [SerializeField] private float groundCheckRadius = 0.15f;
@@ -29,13 +27,12 @@ public class PlayerController : MonoBehaviour
         startPos = gameObject.transform.position;
     }
 
-    //When working with physics, use FixedUpdate Loop
     private void FixedUpdate()
     {
         float horiz = Input.GetAxis("Horizontal");
         isGrounded = GroundCheck();
 
-        //Jump code goes here!
+        //Jump code
         if (isGrounded && Input.GetAxis("Jump") > 0)
         {
             rBody.AddForce(new Vector2(0.0f, jumpForce));
@@ -57,14 +54,17 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isGrounded", isGrounded);
         anim.SetBool("isDucking", isDucking);
 
+        //Ducking
         Duck();
     }
 
+    //Checking if player touches the ground
     private bool GroundCheck()
     {
         return Physics2D.OverlapCircle(groundCheckPos.position, groundCheckRadius, whatIsGround);
     }
 
+    //Flipping player's sprites
     private void Flip()
     {
         Vector3 temp = transform.localScale;
@@ -74,11 +74,13 @@ public class PlayerController : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
+    //Ducking 
     private void Duck()
     {
         if (Input.GetKey(KeyCode.S) && isGrounded)
         {
             anim.SetBool("isDucking", !isDucking);
+            //Stop ducking animation if player moves
             if (rBody.velocity.x != 0)
                 anim.SetBool("isDucking", isDucking);
         }

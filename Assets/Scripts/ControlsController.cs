@@ -6,6 +6,7 @@ public class ControlsController : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
 
+    //Destroying panel on enter
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
