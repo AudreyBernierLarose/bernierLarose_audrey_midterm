@@ -26,7 +26,5 @@ public class Stars : MonoBehaviour
     {
         yield return new WaitForSeconds(waitFallTime);
         rBody.velocity = new Vector3(0,0, 0.0f);
-        rBody.gravityScale = 2;
-
     }
 }
