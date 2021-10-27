@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 734000186124087912}
   - component: {fileID: 3045471231239803053}
   - component: {fileID: 606406590215056515}
-  - component: {fileID: 4282025694462461765}
   - component: {fileID: 6790795863349935687}
+  - component: {fileID: 1927929717882506320}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,19 +121,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0037093163, y: 0.0909009}
   m_Size: {x: 0.3302908, y: 0.56391335}
   m_Direction: 0
---- !u!114 &4282025694462461765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4310034232768151284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0522a5d2b04ce8543a940cf0a5991720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: 3
 --- !u!50 &6790795863349935687
 Rigidbody2D:
   serializedVersion: 4
@@ -152,5 +140,19 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1927929717882506320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310034232768151284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c3783cf49b2b647aec91a1a5e8d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 3
+  waitFallTime: 0.1

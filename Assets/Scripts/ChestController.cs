@@ -13,13 +13,22 @@ public class ChestController : MonoBehaviour
     //Action allowed if player is within the collider
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
+       /* if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
             isOpened = true;
             anim.SetBool("isOpening", isOpened);
             particles.SetActive(true);
             
+        }*/
+
+        if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
+        {
+            isOpened = true;
+            anim.SetBool("isOpening", isOpened);
+            particles.SetActive(true);
+
         }
+
     }
 
     // Start is called before the first frame update
